@@ -1,0 +1,31 @@
+{
+  "model_name": "Late Fusion ResNet50 + TF-IDF + Clinical",
+  "num_classes": 13,
+  "label_list": [
+    "Normal",
+    "Kardiomegali",
+    "Aterosklerosis Aorta",
+    "Kalsifikasi Aorta",
+    "Elongasi Aorta",
+    "Bronkitis",
+    "Emfisema Paru",
+    "TB Paru",
+    "Pneumonia",
+    "Efusi Pleura",
+    "Edema Paru",
+    "Fibrosis Paru",
+    "Massa Paru / Tumor"
+  ],
+  "image_size": [
+    224,
+    224,
+    3
+  ],
+  "tfidf_dim": 553,
+  "clinical_dim": 3,
+  "clinical_cols": [
+    "umur_clean",
+    "jenis_kelamin_enc",
+    "jenis_pemeriksaan_enc"
+  ]
+}

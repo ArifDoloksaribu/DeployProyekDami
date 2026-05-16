@@ -1,0 +1,15 @@
+{
+  "Normal": 0.35,
+  "Kardiomegali": 0.35,
+  "Aterosklerosis Aorta": 0.3,
+  "Kalsifikasi Aorta": 0.35,
+  "Elongasi Aorta": 0.25,
+  "Bronkitis": 0.45,
+  "Emfisema Paru": 0.4,
+  "TB Paru": 0.4,
+  "Pneumonia": 0.35,
+  "Efusi Pleura": 0.45,
+  "Edema Paru": 0.3,
+  "Fibrosis Paru": 0.35,
+  "Massa Paru / Tumor": 0.1
+}
