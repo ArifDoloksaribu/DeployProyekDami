@@ -178,13 +178,13 @@ if run:
         st.subheader("Hasil Analisis")
 
         if positif:
-            st.error(f"Terdeteksi {len(positif)} kelainan:")
+            st.markdown(f"**Menampilkan {len(positif)} diagnosis dengan probabilitas tertinggi:**")
             cols = st.columns(min(len(positif), 4))
             for i, label in enumerate(positif):
                 with cols[i % 4]:
                     st.metric(label, f"{hasil[label]['prob']:.2%}")
         else:
-            st.success("Tidak terdeteksi kelainan — Normal")
+            st.markdown("**Tidak ada diagnosis yang melewati batas threshold.**")
 
 
         st.caption("Hasil prediksi AI untuk keperluan akademik. Bukan diagnosis medis resmi.")
