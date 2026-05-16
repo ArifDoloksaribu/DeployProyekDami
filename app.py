@@ -186,14 +186,5 @@ if run:
         else:
             st.success("Tidak terdeteksi kelainan — Normal")
 
-        st.divider()
 
-        # Tabel sederhana: hanya Label dan Probabilitas (%)
-        df = pd.DataFrame([
-            {"Label Penyakit": l,
-             "Probabilitas": f"{v['prob']:.2%}"}
-            for l, v in sorted(hasil.items(),
-                               key=lambda x: x[1]["prob"], reverse=True)
-        ])
-        st.dataframe(df, use_container_width=True, hide_index=True)
         st.caption("Hasil prediksi AI untuk keperluan akademik. Bukan diagnosis medis resmi.")
