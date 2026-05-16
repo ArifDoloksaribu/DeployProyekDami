@@ -146,7 +146,7 @@ with col2:
         placeholder="Contoh: Tampak kardiomegali. Tidak tampak infiltrat.",
         height=130
     )
-    umur = st.slider("Umur (tahun)", 1, 100, 45)
+    umur = st.number_input("Umur (tahun)", min_value=1, max_value=120, value=None, step=1, placeholder="Masukkan umur...")
     c1, c2 = st.columns(2)
     with c1:
         jenis_kelamin = st.radio("Jenis Kelamin",
@@ -166,6 +166,8 @@ with col_btn:
 if run:
     if not uploaded:
         st.error("Upload gambar X-Ray terlebih dahulu.")
+    elif umur is None:
+        st.error("Harap masukkan umur pasien terlebih dahulu.")
     else:
         with st.spinner("Menganalisis..."):
             hasil = prediksi(model, vectorizer, scaler,
