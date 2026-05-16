@@ -18,8 +18,8 @@ st.set_page_config(
 # ── ID Google Drive — ISI SETELAH UPLOAD ─────────────────────────
 GDRIVE_IDS = {
     "model_final.keras"    : "1SbS40YpUmxm7YWEYtNcTc5prcnyLOE80",
-    "tfidf_vectorizer.pkl" : "1hA2ZRswxH4OSFPUFjWG0jFPIOeg7ydkM",   # tidak berubah jika vectorizer sama
-    "clinical_scaler.pkl"  : "1aLmFg55NW2TenrpLFVUjCvWu9-gOVBeY",   # tidak berubah jika scaler sama
+    "tfidf_vectorizer.pkl" : "1hA2ZRswxH4OSFPUFjWG0jFPIOeg7ydkM",  
+    "clinical_scaler.pkl"  : "1aLmFg55NW2TenrpLFVUjCvWu9-gOVBeY", 
     "threshold.json"       : "1qNdO2AQRJGQbdSPhJ6upwp9kFSexdsE4",
     "config.json"          : "1_Yeu0HKAQA5VnLomHg4ROHYVgZlJbXFm",
 }
