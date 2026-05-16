@@ -18,8 +18,8 @@ st.set_page_config(
 # ── ID Google Drive — ISI SETELAH UPLOAD ─────────────────────────
 GDRIVE_IDS = {
     "model_final.keras"    : "1SbS40YpUmxm7YWEYtNcTc5prcnyLOE80",
-    "tfidf_vectorizer.pkl" : "1hA2ZRswxH4OSFPUFjWG0jFPIOeg7ydkM",  
-    "clinical_scaler.pkl"  : "1aLmFg55NW2TenrpLFVUjCvWu9-gOVBeY", 
+    "tfidf_vectorizer.pkl" : "1hA2ZRswxH4OSFPUFjWG0jFPIOeg7ydkM",   # tidak berubah jika vectorizer sama
+    "clinical_scaler.pkl"  : "1aLmFg55NW2TenrpLFVUjCvWu9-gOVBeY",   # tidak berubah jika scaler sama
     "threshold.json"       : "1qNdO2AQRJGQbdSPhJ6upwp9kFSexdsE4",
     "config.json"          : "1_Yeu0HKAQA5VnLomHg4ROHYVgZlJbXFm",
 }
@@ -188,31 +188,11 @@ if run:
 
         st.divider()
 
-        # Bar chart
-        labels_s = sorted(hasil, key=lambda x: hasil[x]["prob"], reverse=True)
-        probas   = [hasil[l]["prob"] for l in labels_s]
-        colors   = ["#E74C3C" if hasil[l]["positif"]
-                    else "#2ECC71" for l in labels_s]
-
-        fig, ax = plt.subplots(figsize=(10,5))
-        ax.barh(labels_s, probas, color=colors, edgecolor="white")
-        for l in labels_s:
-            ax.axvline(hasil[l]["thresh"], color="orange",
-                       linestyle="--", lw=0.8, alpha=0.5)
-        ax.set_xlabel("Probabilitas")
-        ax.set_title("Merah=Positif | Hijau=Negatif | Oranye=Threshold")
-        ax.set_xlim([0,1])
-        ax.grid(axis="x", alpha=0.3)
-        plt.tight_layout()
-        st.pyplot(fig)
-
-        # Tabel
+        # Tabel sederhana: hanya Label dan Probabilitas (%)
         df = pd.DataFrame([
-            {"Label": l,
-             "Probabilitas": f"{v['prob']:.4f}",
-             "Threshold": f"{v['thresh']:.2f}",
-             "Status": "POSITIF" if v["positif"] else "Negatif"}
-            for l,v in sorted(hasil.items(),
+            {"Label Penyakit": l,
+             "Probabilitas": f"{v['prob']:.2%}"}
+            for l, v in sorted(hasil.items(),
                                key=lambda x: x[1]["prob"], reverse=True)
         ])
         st.dataframe(df, use_container_width=True, hide_index=True)
